@@ -2,7 +2,7 @@ const int waterPin = A0;
 const int ledPin = 6;
 const int buzzerPin = 5;
 
-int threshold = 500;
+int threshold = 300; 
 
 void setup() {
   pinMode(ledPin, OUTPUT);
@@ -11,10 +11,10 @@ void setup() {
 }
 
 void loop() {
-  int value = analogRead(waterPin);
-  Serial.println(value);
+  int waterValue = analogRead(waterPin);
+  Serial.println(waterValue);
 
-  if (value < threshold) {
+  if (waterValue > threshold) { 
     digitalWrite(ledPin, HIGH);
     tone(buzzerPin, 2000);
   } else {
